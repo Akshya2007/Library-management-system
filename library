@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Library {
+private:
+    int bookID;
+    string bookName;
+    string author;
+
+public:
+    void addBook() {
+        cout << "\nEnter Book ID: ";
+        cin >> bookID;
+        cin.ignore();
+
+        cout << "Enter Book Name: ";
+        getline(cin, bookName);
+
+        cout << "Enter Author Name: ";
+        getline(cin, author);
+
+        cout << "\nBook Added Successfully!\n";
+    }
+
+    void displayBook() {
+        cout << "\n----- Book Details -----\n";
+        cout << "Book ID   : " << bookID << endl;
+        cout << "Book Name : " << bookName << endl;
+        cout << "Author    : " << author << endl;
+    }
+};
+
+int main() {
+    Library book;
+    int choice;
+
+    do {
+        cout << "\n===== LIBRARY MANAGEMENT SYSTEM =====\n";
+        cout << "1. Add Book\n";
+        cout << "2. Display Book\n";
+        cout << "3. Exit\n";
+        cout << "Enter Your Choice: ";
+        cin >> choice;
+
+        switch(choice) {
+            case 1:
+                book.addBook();
+                break;
+
+            case 2:
+                book.displayBook();
+                break;
+
+            case 3:
+                cout << "\nThank You!\n";
+                break;
+
+            default:
+                cout << "\nInvalid Choice!\n";
+        }
+
+    } while(choice != 3);
+
+    return 0;
+}
